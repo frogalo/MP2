@@ -1,0 +1,5 @@
+package Events;
+
+public enum Cake {
+    CHOCOLATE, STRAWBERRY, COFFEE, CHEESECAKE, MERINGUE, PISTACHIO
+}
