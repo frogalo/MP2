@@ -6,6 +6,7 @@ import Events.Birthday;
 import Events.Cake;
 import Events.DancingEvening;
 import Events.MovieNight;
+import Objects.Contract;
 import Objects.Movie;
 
 import java.util.UUID;
@@ -69,7 +70,11 @@ public class Main {
         System.out.println(movieNight1.findMovieByID(2));
 
         System.out.println("============KOPMPOZYCJA============");
+        DJ DJKalina = new DJ("10.02.1991", "1002199100933", 1, "Kalina", "Prosota", "Music Inc.", "Kalyna");
+        Contract contract1 = Contract.createContract("21.02.2023", "2 gigs", DJKalina);
+        Contract contract2 = Contract.createContract("21.02.2024", "3 gigs", DJKalina);
 
+        System.out.println("DJKALINAS CONTRACTS: " + DJKalina.getContracts());
 
     }
 }
