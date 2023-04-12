@@ -8,30 +8,34 @@ public class Birthday extends Event {
     private Cake cake;
     private String personName;
     private int age;
-    public int[] barmanIds;
-    public ArrayList<Waiter> waiters;
+    public ArrayList<Waiter> waiters = new ArrayList<Waiter>();
 
-    private static ArrayList<Birthday> extent = new ArrayList<Birthday>();
 
-    public Birthday(int id, String name, String date, String startHour, String endHour, Cake cake, String personName, int age, int[] barmanIds) {
+    public Birthday(int id, String name, String date, String startHour, String endHour, Cake cake, String personName, int age) {
         super(id, name, date, startHour, endHour);
         this.cake = cake;
         this.personName = personName;
         this.age = age;
-        this.barmanIds = barmanIds;
-        extent.add(this);
-    }
-
-    private static Birthday findBirthday(int id) throws Exception {
-        for (Birthday birthday : extent) {
-            if (birthday.id == id) {
-                return birthday;
-            }
-        }
-        throw new Exception("Unable to find birthday with id = " + id);
     }
 
     public void addWaiter(Waiter waiter) {
-        this.waiters.add(waiter);
+        if (!waiters.contains(waiter)) {
+            waiters.add(waiter);
+            waiter.addBirthday(this);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Birthday{" +
+                "cake=" + cake +
+                ", personName='" + personName + '\'' +
+                ", age=" + age +
+                ", id=" + id +
+                '}';
+    }
+
+    public ArrayList<Waiter> getWaiters() {
+        return waiters;
     }
 }

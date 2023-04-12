@@ -14,4 +14,15 @@ public class Event {
         this.startHour = startHour;
         this.endHour = endHour;
     }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", date='" + date + '\'' +
+                ", startHour='" + startHour + '\'' +
+                ", endHour='" + endHour + '\'' +
+                '}';
+    }
 }

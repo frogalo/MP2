@@ -12,4 +12,12 @@ public class PermanentEmployee extends Employee {
         this.weeksWorked = weeksWorked;
     }
 
+    @Override
+    public String toString() {
+        return "PermanentEmployee{" +
+                "salary=" + salary +
+                ", startDate='" + startDate + '\'' +
+                ", weeksWorked=" + weeksWorked +
+                '}';
+    }
 }
