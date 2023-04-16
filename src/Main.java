@@ -11,7 +11,7 @@ import Emloyees.DJType;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        String[] certificates;
+
         Barman barman1 = new Barman("10.01.1999", "0101199911123", 3999.99, 1,
                 "10.02.2022", 31, 3, new int[]{1, 2}, "Jan", "Kowlaski", false);
 

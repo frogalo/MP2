@@ -1,11 +1,8 @@
 package Emloyees;
 
-import Objects.Contract;
-
-import java.util.ArrayList;
 
 public abstract class TemporaryEmployee extends Employee {
-    private String company;
+    private final String company;
 
 
     public TemporaryEmployee(String birthDate, String PESEL, int id, String firstName, String lastName, String company) {

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Barman extends PermanentEmployee implements Cashier, Bartender {
     public int[] birthdayIds;
-    private int experience;
+    private final int experience;
 
 
     public Barman(String birthday, String PESEL, double salary, int id, String startDate, int weeksWorked, int experience, int[] birthdayIds, String firstName, String lastName, boolean isRetired) {
@@ -15,13 +15,6 @@ public class Barman extends PermanentEmployee implements Cashier, Bartender {
 
     }
 
-    public int[] getBirthdayIds() {
-        return birthdayIds;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
 
     public String getFirstName() {
         return firstName;

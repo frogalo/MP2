@@ -35,10 +35,6 @@ public abstract class PermanentEmployee extends Employee {
                 ", weeksWorked=" + weeksWorked +
                 '}';
     }
-    public boolean isRetired() {
-        return isRetired;
-    }
-
 
     public abstract void countPayments();
 }

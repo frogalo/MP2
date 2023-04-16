@@ -8,12 +8,12 @@ import java.util.HashSet;
 
 
 public class DJ extends TemporaryEmployee {
-    private String pseudonym;
-    private ArrayList<DJOnDancingEvening> djOnDancingEvening = new ArrayList<DJOnDancingEvening>();
-    private ArrayList<Contract> contracts = new ArrayList<Contract>();
-    private HashSet<DJType> DJKinds = new HashSet<DJType>();
+    private final String pseudonym;
+    private final ArrayList<DJOnDancingEvening> djOnDancingEvening = new ArrayList<>();
+    private final ArrayList<Contract> contracts = new ArrayList<>();
+    private final HashSet<DJType> DJKinds = new HashSet<>();
     private int numberOfFans;
-    private int yearsOfExperiance;
+    private int yearsOfExperience;
 
     public DJ(String birthDate, String PESEL, int id, String firstName, String lastName, String company, String pseudonym, DJType djType) {
         super(birthDate, PESEL, id, firstName, lastName, company);
@@ -57,9 +57,7 @@ public class DJ extends TemporaryEmployee {
         } else {
             DJKinds.add(DJType.FAMOUS);
             this.setNumberOfFans(numberOfFans);
-            if (DJKinds.contains(DJType.UNKNOWN)) {
-                DJKinds.remove(DJType.UNKNOWN);
-            }
+            DJKinds.remove(DJType.UNKNOWN);
             System.out.println(this.firstName + " " + this.lastName + " is now a famous DJ with " + numberOfFans + " fans");
         }
     }
@@ -68,16 +66,14 @@ public class DJ extends TemporaryEmployee {
         DJKinds.add(DJType.EXPERIENCED);
         this.setYearsOfExperience(yearsOfExperience);
         System.out.println(this.firstName + " " + this.lastName + " is now an experienced DJ");
-        if (DJKinds.contains(DJType.INEXPERIENCED)) {
-            DJKinds.remove(DJType.INEXPERIENCED);
-        }
+        DJKinds.remove(DJType.INEXPERIENCED);
     }
 
     public void setYearsOfExperience(int yearsOfExperiance) throws Exception {
         if (!DJKinds.contains(DJType.EXPERIENCED)) {
             throw new Exception("You can't add years of experience to not experienced DJ");
         }
-        this.yearsOfExperiance = yearsOfExperiance;
+        this.yearsOfExperience = yearsOfExperiance;
         System.out.println(this.firstName + " " + this.lastName + " has " + yearsOfExperiance + " years of experience");
     }
 
@@ -111,5 +107,13 @@ public class DJ extends TemporaryEmployee {
     @Override
     public void doWork() {
         System.out.println("DJ is playing great music");
+    }
+
+    public int getNumberOfFans() {
+        return numberOfFans;
+    }
+
+    public int getYearsOfExperience() {
+        return yearsOfExperience;
     }
 }

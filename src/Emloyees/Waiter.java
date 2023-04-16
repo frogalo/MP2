@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Waiter extends PermanentEmployee {
-    private String[] languages;
-    private ArrayList<Birthday> birthdays = new ArrayList<Birthday>();
+    private final String[] languages;
+    private final ArrayList<Birthday> birthdays = new ArrayList<>();
     CashierAspect cashierAspect;
     CleanerAspect cleanerAspect;
 
@@ -25,13 +25,6 @@ public class Waiter extends PermanentEmployee {
         }
     }
 
-    public String[] getLanguages() {
-        return languages;
-    }
-
-    public ArrayList<Birthday> getBirthdays() {
-        return birthdays;
-    }
 
     @Override
     public String toString() {
