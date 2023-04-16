@@ -1,6 +1,6 @@
 package Events;
 
-public class Event {
+public abstract class Event {
     public int id;
     private String name;
     private String date;

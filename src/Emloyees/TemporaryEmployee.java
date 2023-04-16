@@ -4,7 +4,7 @@ import Objects.Contract;
 
 import java.util.ArrayList;
 
-public class TemporaryEmployee extends Employee {
+public abstract class TemporaryEmployee extends Employee {
     private String company;
 
 
