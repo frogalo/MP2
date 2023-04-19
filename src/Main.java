@@ -6,6 +6,7 @@ import Events.MovieNight;
 import Objects.Contract;
 import Objects.Movie;
 import Emloyees.DJType;
+import Objects.Table;
 
 
 public class Main {
@@ -19,17 +20,17 @@ public class Main {
                 "10.02.2021", 81, 8, "Marta", "Podmiecka", false);
 
         Waiter waiter1 = new Waiter("10.05.2022", "1005202234565", 3000, "20.01.2022",
-                24, 1, "Jan", "Kowalik", new String[]{"polski", "francuski", "angielski"}, false);
+                24, 3, "Jan", "Kowalik", new String[]{"polski", "francuski", "angielski"}, false);
 
-        Waiter waiter2 = new Waiter("10.07.2022", "1005202234565", 3230, "20.01.2022",
-                24, 1, "Kazimierz", "Baran", new String[]{"polski", "angielski"}, false);
+        Waiter waiter2 = new Waiter("10.07.2022", "1005202232565", 3230, "20.01.2022",
+                24, 4, "Kazimierz", "Baran", new String[]{"polski", "angielski"}, false);
 
-        Birthday birthday1 = new Birthday(1, "20-Janusza", "02.02.2020", "20:00", "24:00", Cake.CHEESECAKE,
-                "Janusz", 20);
-        Birthday birthday2 = new Birthday(2, "24-Marka", "03.02.2020", "20:00", "24:00", Cake.CHOCOLATE,
-                "Marek", 24);
+        Birthday birthday1 = new Birthday(5, "20-Janusza", "02.02.2020", "20:00", "24:00", Cake.CHEESECAKE,
+                "Janusz", 20, 100);
+        Birthday birthday2 = new Birthday(6, "24-Marka", "03.02.2020", "20:00", "24:00", Cake.CHOCOLATE,
+                "Marek", 24, 50);
 
-
+//        System.out.println("============MP2============");
 //        System.out.println("============ZWYKLA============");
 //        birthday1.addWaiter(waiter1);
 //        waiter2.addBirthday(birthday2);
@@ -41,11 +42,11 @@ public class Main {
 //
 //
 //        System.out.println("============Z ATRYBUTEM============");
-        DJ DJMarian = new DJ("10.02.1997", "1002199700932", 1, "Marian", "Koszalek", "Music Inc.", "Marian", DJType.FAMOUS);
+        DJ DJMarian = new DJ("10.02.1997", "1002199700932", 7, "Marian", "Koszalek", "Music Inc.", "Marian", DJType.FAMOUS);
 
-        DancingEvening dancingEvening1 = new DancingEvening(1, "Potancowka", "12.09.2022", "20:00", "22:00", "USA",
+        DancingEvening dancingEvening1 = new DancingEvening(8, "Potancowka", "12.09.2022", "20:00", "22:00", "USA",
                 new String[]{"baloniki", "lampki"});
-        DancingEvening dancingEvening2 = new DancingEvening(2, "NowyRok", "31.12.2023", "20:00", "01:00", "Party",
+        DancingEvening dancingEvening2 = new DancingEvening(9, "NowyRok", "31.12.2023", "20:00", "01:00", "Party",
                 new String[]{"ognie", "lampki"});
 //
 //
@@ -74,7 +75,7 @@ public class Main {
 //
 //        System.out.println("DJKALINA'S CONTRACTS: " + DJKalina.getContracts());
 
-
+        System.out.println("============MP3============");
         System.out.println("============ABSTRAKCJA============");
         waiter2.countPayments(); //waiter is a permanent Employee
         barman1.countPayments(); //barman is also a permanent Employee
@@ -112,9 +113,28 @@ public class Main {
         retiredEmployee1.countPayments();
 
 
+        System.out.println("============MP4============");
+
+        System.out.println("============ARGUMENT============");
+        birthday1.setNumberOfGuests(10);
+//        Birthday birthday3 = new Birthday(2, "24-Marka", "03.02.2020", "20:00", "24:00", Cake.CHOCOLATE,
+//                "Marek", 24, 500);
+//        birthday1.setNumberOfGuests(200);
+
+        System.out.println("============UNIQUE============");
+        Table table1 = new Table(1, 23);
+        Table table2 = new Table(2, 23);
+        Table table3 = new Table(1, 23);
+
+        waiter1.addTable(table1);
+        waiter1.addTable(table2);
+//        waiter1.addTable(table3);
+        waiter1.showTables();
+
+
     }
 
-    public static RetiredEmployee retire(PermanentEmployee employee) {
+    public static RetiredEmployee retire(PermanentEmployee employee) throws Exception {
         RetiredEmployee retiredEmployee = new RetiredEmployee(employee.getBirthDate(), employee.getPESEL(), employee.getSalary(),
                 employee.getStartDate(), employee.getWeeksWorked(), employee.getId(), employee.getFirstName(), employee.getLastName());
         employee = null;

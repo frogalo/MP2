@@ -15,7 +15,7 @@ public class DJ extends TemporaryEmployee {
     private int numberOfFans;
     private int yearsOfExperience;
 
-    public DJ(String birthDate, String PESEL, int id, String firstName, String lastName, String company, String pseudonym, DJType djType) {
+    public DJ(String birthDate, String PESEL, int id, String firstName, String lastName, String company, String pseudonym, DJType djType) throws Exception {
         super(birthDate, PESEL, id, firstName, lastName, company);
         this.pseudonym = pseudonym;
         DJKinds.add(djType);

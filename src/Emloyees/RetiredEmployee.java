@@ -2,7 +2,7 @@ package Emloyees;
 
 public class RetiredEmployee extends PermanentEmployee {
 
-    public RetiredEmployee(String birthday, String PESEL, double salary, String startDate, int weeksWorked, int id, String firstName, String lastName) {
+    public RetiredEmployee(String birthday, String PESEL, double salary, String startDate, int weeksWorked, int id, String firstName, String lastName) throws Exception {
         super(birthday, PESEL, salary, startDate, weeksWorked, id, firstName, lastName, true);
 
     }

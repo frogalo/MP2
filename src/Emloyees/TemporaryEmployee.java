@@ -5,7 +5,7 @@ public abstract class TemporaryEmployee extends Employee {
     private final String company;
 
 
-    public TemporaryEmployee(String birthDate, String PESEL, int id, String firstName, String lastName, String company) {
+    public TemporaryEmployee(String birthDate, String PESEL, int id, String firstName, String lastName, String company) throws Exception {
         super(birthDate, PESEL, id, firstName, lastName);
         this.company = company;
     }

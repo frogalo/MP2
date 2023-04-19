@@ -1,7 +1,7 @@
 package Emloyees;
 
 public class CashierAspect extends PermanentEmployee implements Cashier {
-    public CashierAspect(String birthday, String PESEL, double salary, String startDate, int weeksWorked, int id, String firstName, String lastName, boolean isRetired) {
+    public CashierAspect(String birthday, String PESEL, double salary, String startDate, int weeksWorked, int id, String firstName, String lastName, boolean isRetired) throws Exception {
         super(birthday, PESEL, salary, startDate, weeksWorked, id, firstName, lastName, isRetired);
     }
 

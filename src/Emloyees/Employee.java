@@ -1,19 +1,23 @@
 package Emloyees;
 
 
+import java.util.HashMap;
+
 public abstract class Employee {
-    protected int id;
+    public int id;
     protected String PESEL;
     protected String birthDate;
     protected String firstName;
     protected String lastName;
 
-    public Employee(String birthDate, String PESEL, int id, String firstName, String lastName) {
+
+    public Employee(String birthDate, String PESEL, int id, String firstName, String lastName) throws Exception {
         this.id = id;
         this.PESEL = PESEL;
         this.birthDate = birthDate;
         this.firstName = firstName;
         this.lastName = lastName;
+
     }
 
     @Override
@@ -26,6 +30,7 @@ public abstract class Employee {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
 
     public int getId() {
         return id;

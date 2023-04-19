@@ -12,7 +12,7 @@ public class Barman extends PermanentEmployee implements Cashier, Bartender {
     private final ArrayList<MovieNight> movieNights = new ArrayList<>();
 
 
-    public Barman(String birthday, String PESEL, double salary, int id, String startDate, int weeksWorked, int experience, String firstName, String lastName, boolean isRetired) {
+    public Barman(String birthday, String PESEL, double salary, int id, String startDate, int weeksWorked, int experience, String firstName, String lastName, boolean isRetired) throws Exception {
         super(birthday, PESEL, salary, startDate, weeksWorked, id, firstName, lastName, isRetired);
         this.experience = experience;
 

@@ -6,7 +6,7 @@ public abstract class PermanentEmployee extends Employee {
     protected int weeksWorked;
     protected boolean isRetired;
 
-    public PermanentEmployee(String birthday, String PESEL, double salary, String startDate, int weeksWorked, int id, String firstName, String lastName, boolean isRetired) {
+    public PermanentEmployee(String birthday, String PESEL, double salary, String startDate, int weeksWorked, int id, String firstName, String lastName, boolean isRetired) throws Exception {
         super(birthday, PESEL, id, firstName, lastName);
         this.salary = salary;
         this.startDate = startDate;

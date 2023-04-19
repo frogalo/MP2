@@ -3,7 +3,7 @@ package Emloyees;
 public class CleanerAspect extends PermanentEmployee implements Cleaner {
     int numberOfTablesToClean;
 
-    public CleanerAspect(String birthday, String PESEL, double salary, String startDate, int weeksWorked, int id, String firstName, String lastName, int numberOfTablesToClean, boolean isRetired) {
+    public CleanerAspect(String birthday, String PESEL, double salary, String startDate, int weeksWorked, int id, String firstName, String lastName, int numberOfTablesToClean, boolean isRetired) throws Exception {
         super(birthday, PESEL, salary, startDate, weeksWorked, id, firstName, lastName, isRetired);
         this.numberOfTablesToClean = numberOfTablesToClean;
     }
