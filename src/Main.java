@@ -131,7 +131,12 @@ public class Main {
 //        waiter1.addTable(table3);
         waiter1.showTables();
 
-
+        System.out.println("============SUBSET============");
+        DJGroup group1 = new DJGroup("sub1Group", "metal");
+        group1.addDJ(DJKalina);
+        group1.setLeadDJ(DJKalina);
+//        group1.setLeadDJ(DJMarian);
+        group1.showGroupMembers();
     }
 
     public static RetiredEmployee retire(PermanentEmployee employee) throws Exception {

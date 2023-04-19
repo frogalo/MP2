@@ -14,6 +14,7 @@ public class DJ extends TemporaryEmployee {
     private final HashSet<DJType> DJKinds = new HashSet<>();
     private int numberOfFans;
     private int yearsOfExperience;
+    public DJGroup djGroup;
 
     public DJ(String birthDate, String PESEL, int id, String firstName, String lastName, String company, String pseudonym, DJType djType) throws Exception {
         super(birthDate, PESEL, id, firstName, lastName, company);
@@ -35,8 +36,8 @@ public class DJ extends TemporaryEmployee {
                 this.numberOfFans = numberOfFans;
                 System.out.println(this.firstName + " " + this.lastName + " has " + numberOfFans + " fans");
             }
-        }else {
-            if (numberOfFans < 1000){
+        } else {
+            if (numberOfFans < 1000) {
                 this.makeUnknown(numberOfFans);
             }
         }
@@ -159,5 +160,15 @@ public class DJ extends TemporaryEmployee {
 
     public int getYearsOfExperience() {
         return yearsOfExperience;
+    }
+
+    public void addGroup(DJGroup djGroup) {
+        if (this.djGroup == null) {
+            this.djGroup = djGroup;
+            djGroup.addDJ(this);
+            if (djGroup.djs.contains(this)) {
+                djGroup.djs.remove(this);
+            }
+        }
     }
 }
