@@ -1,17 +1,17 @@
 package Events;
 
+import Emloyees.Barman;
+import Emloyees.Waiter;
 import Objects.Movie;
 
-import java.util.Dictionary;
-import java.util.Enumeration;
-
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 
 public class MovieNight extends Event {
-    private String theme;
-    private String description;
-    private HashMap<Integer, Movie> moviesQualif = new HashMap<Integer, Movie>();
+    private final String theme;
+    private final String description;
+    private final HashMap<Integer, Movie> moviesQualif = new HashMap<>();
+    private final ArrayList<Barman> barmen = new ArrayList<>();
+    private Waiter waiter;
 
     public MovieNight(int id, String name, String date, String startHour, String endHour, String theme, String description) {
         super(id, name, date, startHour, endHour);
@@ -19,6 +19,23 @@ public class MovieNight extends Event {
         this.theme = theme;
     }
 
+    public void addWaiter(Waiter waiter) {
+        if (!(this.waiter == waiter)) {
+            this.setWaiter(waiter);
+            waiter.addMovieNight(this);
+        }
+    }
+
+    public void setWaiter(Waiter waiter) {
+        this.waiter = waiter;
+    }
+
+    public void addBarman(Barman barman) {
+        if (!barmen.contains(barman)) {
+            barmen.add(barman);
+            barman.addMovieNight(this);
+        }
+    }
 
     public void addMovieQualif(Movie movie) {
         if (!moviesQualif.containsKey(movie.getUuid())) {

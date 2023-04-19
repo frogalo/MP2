@@ -12,11 +12,11 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
 
-        Barman barman1 = new Barman("10.01.1999", "0101199911123", 3999.99, 1,
-                "10.02.2022", 31, 3, new int[]{1, 2}, "Jan", "Kowlaski", false);
+        Barman barman1 = new Barman("10.01.1999", "0101199911123", 4999.99, 1,
+                "10.02.2022", 31, 3, "Jan", "Kowlaski", false);
 
         Barman barman2 = new Barman("10.01.1998", "0101199811124", 3999.99, 2,
-                "10.02.2021", 81, 8, new int[]{2}, "Marta", "Podmiecka", false);
+                "10.02.2021", 81, 8, "Marta", "Podmiecka", false);
 
         Waiter waiter1 = new Waiter("10.05.2022", "1005202234565", 3000, "20.01.2022",
                 24, 1, "Jan", "Kowalik", new String[]{"polski", "francuski", "angielski"}, false);
@@ -31,10 +31,11 @@ public class Main {
 
 
 //        System.out.println("============ZWYKLA============");
-        birthday1.addWaiter(waiter1);
-        waiter2.addBirthday(birthday2);
+//        birthday1.addWaiter(waiter1);
+//        waiter2.addBirthday(birthday2);
+//        waiter2.addBirthday(birthday1);
 //        System.out.println("WAITER 1:   " + waiter1.getBirthdays());
-//        System.out.println("WAITER 2: " + waiter2.getBirthdays());
+//        waiter2.writeBirthdays();
 //        System.out.println("BIRTHDAY 1: " + birthday1.getWaiters());
 //        System.out.println("BIRTHDAY 2: " + birthday2.getWaiters());
 //
@@ -75,38 +76,41 @@ public class Main {
 
 
         System.out.println("============ABSTRAKCJA============");
-        waiter2.countPayments();
-        barman1.countPayments();
+        waiter2.countPayments(); //waiter is a permanent Employee
+        barman1.countPayments(); //barman is also a permanent Employee
 
         DJKalina.doWork();
         barman2.doWork();
 
         System.out.println("============OVERLAPPING============");
-//        DJKalina.setUnknown();
+//        DJKalina.makeUnknown();
 //        DJKalina.setNumberOfFans(2000);
-        DJKalina.setNumberOfFans(200);
-//        DJKalina.setFamous(500);
-        DJKalina.setFamous(2000);
+//        DJKalina.setNumberOfFans(200);
+        DJKalina.makeFamous(5000);
+//        DJKalina.makeFamous(2000);
 //        DJKalina.setYearsOfExperience(2);
-        DJKalina.setExperienced(2);
-        DJKalina.setYearsOfExperience(3);
-//        DJKalina.setUnknown(2000);
-        DJKalina.setUnknown(500);
+//        DJKalina.setNumberOfFans(10000);
+//        DJKalina.setNumberOfFans(100);
+        DJKalina.makeExperienced(3);
+//        DJKalina.setYearsOfExperience(3);
+//        DJKalina.makeUnknown(20000);
+//        DJKalina.makeUnknown(500);
 
 
         System.out.println("============MULTI-INHERITANCE============");
-        barman2.mixDrinks();
-        barman1.receivePayment();
+        barman2.mixDrinks(); //can work as a bartender
+        barman1.receivePayment(); //can work as a cashier
 
         System.out.println("============MULTI-ASPECT============");
-        waiter1.doWork();
+        waiter1.doWork(); //will do both cleaner and cashier work and also his as a waiter
 
         System.out.println("============DYNAMIC============");
 //        RetiredEmployee retiredEmployee1 = new RetiredEmployee(barman1.getBirthDate(), barman1.getPESEL(), barman1.getSalary(),
 //                barman1.getStartDate(), barman1.getWeeksWorked(), barman1.getId(), barman1.getFirstName(), barman1.getLastName());
-        RetiredEmployee retiredEmployee1 = retire(waiter1);
+        RetiredEmployee retiredEmployee1 = retire(waiter1); //waiter can retire and become a retired employee
         retiredEmployee1.doWork();
         retiredEmployee1.countPayments();
+
 
     }
 

@@ -1,6 +1,7 @@
 package Emloyees;
 
 import Events.Birthday;
+import Events.MovieNight;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +9,7 @@ import java.util.Arrays;
 public class Waiter extends PermanentEmployee {
     private final String[] languages;
     private final ArrayList<Birthday> birthdays = new ArrayList<>();
+    private final ArrayList<MovieNight> movieNights = new ArrayList<>();
     CashierAspect cashierAspect;
     CleanerAspect cleanerAspect;
 
@@ -25,6 +27,12 @@ public class Waiter extends PermanentEmployee {
         }
     }
 
+    public void addMovieNight(MovieNight movieNight) {
+        if (!movieNights.contains(movieNight)) {
+            movieNights.add(movieNight);
+            movieNight.addWaiter(this);
+        }
+    }
 
     @Override
     public String toString() {
@@ -48,5 +56,12 @@ public class Waiter extends PermanentEmployee {
     @Override
     public void countPayments() {
         System.out.println("TOTAL OF PAYMENTS\t" + Math.round(this.weeksWorked * this.salary) + "$");
+    }
+
+    public void writeBirthdays() {
+        System.out.println("WAITER:" + this.firstName);
+        for (Birthday birthday : this.birthdays) {
+            System.out.println(birthday.toString());
+        }
     }
 }

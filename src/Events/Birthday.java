@@ -5,10 +5,10 @@ import Emloyees.Waiter;
 import java.util.ArrayList;
 
 public class Birthday extends Event {
-    private Cake cake;
-    private String personName;
-    private int age;
-    public ArrayList<Waiter> waiters = new ArrayList<Waiter>();
+    private final Cake cake;
+    private final String personName;
+    private final int age;
+    public ArrayList<Waiter> waiters = new ArrayList<>();
 
 
     public Birthday(int id, String name, String date, String startHour, String endHour, Cake cake, String personName, int age) {
@@ -33,6 +33,10 @@ public class Birthday extends Event {
                 ", age=" + age +
                 ", id=" + id +
                 '}';
+    }
+
+    public String getPersonName() {
+        return personName;
     }
 
     public ArrayList<Waiter> getWaiters() {

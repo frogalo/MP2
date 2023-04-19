@@ -30,51 +30,91 @@ public class DJ extends TemporaryEmployee {
     public void setNumberOfFans(int numberOfFans) throws Exception {
         if (!this.DJKinds.contains(DJType.FAMOUS)) {
             if (numberOfFans > 1000) {
-                throw new Exception("Number of fans cannot be greater than 1000 for unknown DJ");
+                this.makeFamous(numberOfFans);
             } else {
                 this.numberOfFans = numberOfFans;
                 System.out.println(this.firstName + " " + this.lastName + " has " + numberOfFans + " fans");
+            }
+        }else {
+            if (numberOfFans < 1000){
+                this.makeUnknown(numberOfFans);
             }
         }
 
     }
 
-    public void setUnknown(int numberOfFans) throws Exception {
-        if (!this.DJKinds.contains(DJType.FAMOUS)) {
-            throw new Exception("This DJ is not famous");
-        } else if (numberOfFans > 1000) {
+    public void makeUnknown(int numberOfFans) throws Exception {
+        if (numberOfFans > 1000) {
             throw new Exception("Number of fans is too big to make " + this.firstName + " " + this.lastName + " unknown");
+        } else if (this.DJKinds.contains(DJType.UNKNOWN)) {
+            throw new Exception("DJ " + this.firstName + " " + this.lastName + " is already unknown");
         } else {
-            this.DJKinds.remove(DJType.FAMOUS);
+            if (this.DJKinds.contains(DJType.FAMOUS)) {
+                this.DJKinds.remove(DJType.FAMOUS);
+                System.out.println(this.firstName + " " + this.lastName + " is not a famous DJ anymore");
+            }
             this.DJKinds.add(DJType.UNKNOWN);
-            System.out.println(this.firstName + " " + this.lastName + " is not a famous DJ anymore");
+            System.out.println(this.firstName + " " + this.lastName + " is now an unknown DJ");
         }
     }
 
-    public void setFamous(int numberOfFans) throws Exception {
+    public void makeFamous(int numberOfFans) throws Exception {
         if (numberOfFans < 1000) {
             throw new Exception("Number of fans for famous DJ cannot be less than 1000");
+        } else if (this.DJKinds.contains(DJType.FAMOUS)) {
+            throw new Exception("DJ " + this.firstName + " " + this.lastName + " is already famous");
         } else {
+            if (this.DJKinds.contains(DJType.UNKNOWN)) {
+                DJKinds.remove(DJType.UNKNOWN);
+                System.out.println(this.firstName + " " + this.lastName + " is not an unknown DJ anymore");
+            }
             DJKinds.add(DJType.FAMOUS);
             this.setNumberOfFans(numberOfFans);
-            DJKinds.remove(DJType.UNKNOWN);
             System.out.println(this.firstName + " " + this.lastName + " is now a famous DJ with " + numberOfFans + " fans");
         }
     }
 
-    public void setExperienced(int yearsOfExperience) throws Exception {
-        DJKinds.add(DJType.EXPERIENCED);
-        this.setYearsOfExperience(yearsOfExperience);
-        System.out.println(this.firstName + " " + this.lastName + " is now an experienced DJ");
-        DJKinds.remove(DJType.INEXPERIENCED);
+    public void makeInexperienced(int yearsOfExperience) throws Exception {
+        if (yearsOfExperience >= 2) {
+            throw new Exception("DJ " + this.firstName + " " + this.lastName + " have too many years of experience to be an inexperienced DJ");
+        } else if (this.DJKinds.contains(DJType.INEXPERIENCED)) {
+            throw new Exception("DJ " + this.firstName + " " + this.lastName + " is already an inexperienced DJ");
+        } else {
+            if (this.DJKinds.contains(DJType.EXPERIENCED)) {
+                this.DJKinds.remove(DJType.EXPERIENCED);
+                System.out.println(this.firstName + " " + this.lastName + " is not an experienced DJ anymore");
+            }
+            this.DJKinds.add(DJType.INEXPERIENCED);
+            System.out.println(this.firstName + " " + this.lastName + " is now an inexperienced DJ");
+        }
     }
 
-    public void setYearsOfExperience(int yearsOfExperiance) throws Exception {
+    public void makeExperienced(int yearsOfExperience) throws Exception {
+        if (yearsOfExperience < 2) {
+            throw new Exception("DJ " + this.firstName + " " + this.lastName + " doesn't have enough experience");
+        } else if (this.DJKinds.contains(DJType.EXPERIENCED)) {
+            throw new Exception("DJ " + this.firstName + " " + this.lastName + " is already an experienced DJ");
+        } else {
+            if (this.DJKinds.contains(DJType.INEXPERIENCED)) {
+                this.DJKinds.remove(DJType.INEXPERIENCED);
+                System.out.println(this.firstName + " " + this.lastName + " is not an inexperienced DJ anymore");
+            }
+            this.DJKinds.add(DJType.EXPERIENCED);
+            System.out.println(this.firstName + " " + this.lastName + " is now an experienced DJ");
+        }
+    }
+
+    public void setYearsOfExperience(int yearsOfExperience) throws Exception {
         if (!DJKinds.contains(DJType.EXPERIENCED)) {
             throw new Exception("You can't add years of experience to not experienced DJ");
         }
-        this.yearsOfExperience = yearsOfExperiance;
-        System.out.println(this.firstName + " " + this.lastName + " has " + yearsOfExperiance + " years of experience");
+        this.yearsOfExperience = yearsOfExperience;
+        System.out.println(this.firstName + " " + this.lastName + " has " + yearsOfExperience + " years of experience");
+        if (yearsOfExperience >= 2) {
+            this.makeExperienced(yearsOfExperience);
+        } else {
+            this.makeInexperienced(yearsOfExperience);
+        }
     }
 
     public void showDancingEvenings() {
@@ -91,6 +131,10 @@ public class DJ extends TemporaryEmployee {
 
     public ArrayList<Contract> getContracts() {
         return contracts;
+    }
+
+    public HashSet<DJType> getDJKinds() {
+        return DJKinds;
     }
 
     @Override

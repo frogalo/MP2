@@ -14,6 +14,9 @@ public abstract class PermanentEmployee extends Employee {
         this.isRetired = isRetired;
     }
 
+    public void setWeeksWorked(int weeksWorked) {
+        this.weeksWorked = weeksWorked;
+    }
 
     public double getSalary() {
         return salary;

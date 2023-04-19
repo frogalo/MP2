@@ -2,10 +2,10 @@ package Events;
 
 public abstract class Event {
     public int id;
-    private final String name;
-    private final String date;
-    private final String startHour;
-    private final String endHour;
+    protected final String name;
+    protected final String date;
+    protected final String startHour;
+    protected final String endHour;
 
     public Event(int id, String name, String date, String startHour, String endHour) {
         this.id = id;
