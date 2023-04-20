@@ -99,7 +99,7 @@ public class Main {
         barman1.receivePayment(); //can work as a cashier
 
         System.out.println("============MULTI-ASPECT============");
-        birthday1.makeInteresting();
+        birthday1.makeInteresting("secrets");
 
         System.out.println("============DYNAMIC============");
         RetiredEmployee retiredEmployee1 = new RetiredEmployee(barman1.getBirthDate(), barman1.getPESEL(), barman1.getSalary(),

@@ -11,6 +11,8 @@ public abstract class Event {
     protected final String startHour;
     protected final String endHour;
     private final HashSet<EventType> eventTypes = new HashSet<>();
+    private String location;
+    private String password;
 
     public Event(int id, String name, String date, String startHour, String endHour, EventType eventType) {
         this.id = id;
@@ -21,16 +23,19 @@ public abstract class Event {
         eventTypes.add(eventType);
     }
 
-    public void makeFun() {
+    public void makeFun(String location) {
         if (!this.eventTypes.contains(EventType.FUN)) {
             eventTypes.add(EventType.FUN);
             System.out.println(this.name + " is now fun");
+            this.location = location;
         }
     }
-    public void makeInteresting() {
+
+    public void makeInteresting(String password) {
         if (!this.eventTypes.contains(EventType.INTERESTING)) {
             eventTypes.add(EventType.INTERESTING);
             System.out.println(this.name + " is now interesting");
+            this.password = password;
         }
     }
 
