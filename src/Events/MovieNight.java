@@ -13,8 +13,8 @@ public class MovieNight extends Event {
     private final ArrayList<Barman> barmen = new ArrayList<>();
     private Waiter waiter;
 
-    public MovieNight(int id, String name, String date, String startHour, String endHour, String theme, String description) {
-        super(id, name, date, startHour, endHour);
+    public MovieNight(int id, String name, String date, String startHour, String endHour, String theme, String description, EventType eventType) {
+        super(id, name, date, startHour, endHour, eventType);
         this.description = description;
         this.theme = theme;
     }

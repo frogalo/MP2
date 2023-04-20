@@ -1,6 +1,7 @@
 package Emloyees;
 
 import Objects.Contract;
+import Objects.DJConsole;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,7 @@ public class DJ extends TemporaryEmployee {
     private int numberOfFans;
     private int yearsOfExperience;
     public DJGroup djGroup;
+    public DJConsole djConsole;
 
     public DJ(String birthDate, String PESEL, int id, String firstName, String lastName, String company, String pseudonym, DJType djType) throws Exception {
         super(birthDate, PESEL, id, firstName, lastName, company);
@@ -170,5 +172,10 @@ public class DJ extends TemporaryEmployee {
                 djGroup.djs.remove(this);
             }
         }
+    }
+
+    public void addConsole(DJConsole djConsole) throws Exception {
+            this.djConsole = djConsole;
+            djConsole.addDJ(this);
     }
 }

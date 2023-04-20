@@ -13,8 +13,8 @@ public class Birthday extends Event {
     public ArrayList<Waiter> waiters = new ArrayList<>();
 
 
-    public Birthday(int id, String name, String date, String startHour, String endHour, Cake cake, String personName, int age, int numberOfGuests) throws Exception {
-        super(id, name, date, startHour, endHour);
+    public Birthday(int id, String name, String date, String startHour, String endHour, Cake cake, String personName, int age, int numberOfGuests, EventType eventType) throws Exception {
+        super(id, name, date, startHour, endHour, eventType);
         this.cake = cake;
         this.personName = personName;
         this.age = age;

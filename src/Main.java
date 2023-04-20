@@ -1,12 +1,7 @@
 import Emloyees.*;
-import Events.Birthday;
-import Events.Cake;
-import Events.DancingEvening;
-import Events.MovieNight;
-import Objects.Contract;
-import Objects.Movie;
+import Events.*;
+import Objects.*;
 import Emloyees.DJType;
-import Objects.Table;
 
 
 public class Main {
@@ -26,9 +21,9 @@ public class Main {
                 24, 4, "Kazimierz", "Baran", new String[]{"polski", "angielski"}, false);
 
         Birthday birthday1 = new Birthday(5, "20-Janusza", "02.02.2020", "20:00", "24:00", Cake.CHEESECAKE,
-                "Janusz", 20, 100);
+                "Janusz", 20, 100, EventType.FUN);
         Birthday birthday2 = new Birthday(6, "24-Marka", "03.02.2020", "20:00", "24:00", Cake.CHOCOLATE,
-                "Marek", 24, 50);
+                "Marek", 24, 50, EventType.INTERESTING);
 
 //        System.out.println("============MP2============");
 //        System.out.println("============ZWYKLA============");
@@ -45,9 +40,9 @@ public class Main {
         DJ DJMarian = new DJ("10.02.1997", "1002199700932", 7, "Marian", "Koszalek", "Music Inc.", "Marian", DJType.FAMOUS);
 
         DancingEvening dancingEvening1 = new DancingEvening(8, "Potancowka", "12.09.2022", "20:00", "22:00", "USA",
-                new String[]{"baloniki", "lampki"});
+                new String[]{"baloniki", "lampki"}, EventType.FUN);
         DancingEvening dancingEvening2 = new DancingEvening(9, "NowyRok", "31.12.2023", "20:00", "01:00", "Party",
-                new String[]{"ognie", "lampki"});
+                new String[]{"ognie", "lampki"}, EventType.INTERESTING);
 //
 //
         DJOnDancingEvening DjOnEvening = new DJOnDancingEvening(new String[]{"dancing in the clouds", "listening to your heartbeat"}, 4, DJMarian, dancingEvening1);
@@ -62,7 +57,8 @@ public class Main {
         Movie movie1 = new Movie("Big Lebowski", 6.8, 142.23, 1);
         Movie movie2 = new Movie("Big Bang", 6.2, 112.23, 2);
 //
-        MovieNight movieNight1 = new MovieNight(1, "Big Movie Night", "19.01.2022", "19:00", "24:00", "Money", "Movies about making money");
+        MovieNight movieNight1 = new MovieNight(1, "Big Movie Night", "19.01.2022", "19:00",
+                "24:00", "Money", "Movies about making money", EventType.FUN);
 //
         movie1.addMovieNight(movieNight1);
         movie2.addMovieNight(movieNight1);
@@ -103,15 +99,16 @@ public class Main {
         barman1.receivePayment(); //can work as a cashier
 
         System.out.println("============MULTI-ASPECT============");
-        waiter1.doWork(); //will do both cleaner and cashier work and also his as a waiter
+        birthday1.makeInteresting();
 
         System.out.println("============DYNAMIC============");
-//        RetiredEmployee retiredEmployee1 = new RetiredEmployee(barman1.getBirthDate(), barman1.getPESEL(), barman1.getSalary(),
-//                barman1.getStartDate(), barman1.getWeeksWorked(), barman1.getId(), barman1.getFirstName(), barman1.getLastName());
-        RetiredEmployee retiredEmployee1 = retire(waiter1); //waiter can retire and become a retired employee
+        RetiredEmployee retiredEmployee1 = new RetiredEmployee(barman1.getBirthDate(), barman1.getPESEL(), barman1.getSalary(),
+                barman1.getStartDate(), barman1.getWeeksWorked(), barman1.getId(), barman1.getFirstName(), barman1.getLastName());
+//        RetiredEmployee retiredEmployee1 = retire(waiter1); //waiter can retire and become a retired employee
         retiredEmployee1.doWork();
         retiredEmployee1.countPayments();
 
+/*
 
         System.out.println("============MP4============");
 
@@ -137,6 +134,24 @@ public class Main {
         group1.setLeadDJ(DJKalina);
 //        group1.setLeadDJ(DJMarian);
         group1.showGroupMembers();
+
+
+        System.out.println("============ORDERED============");
+        DJConsole djConsole1 = new DJConsole("Trax2000", 201);
+        DJKalina.addConsole(djConsole1);
+        djConsole1.addDJ(DJMarian);
+
+//        djConsole1.addDJ(DJMarian);
+//        DJKalina.addConsole(djConsole1);
+
+        System.out.println(djConsole1.getDjs());
+
+        System.out.println("============BAG============");
+        Room room1 = new Room(2, 124.14);
+//        Reservation reservation1 = new Reservation(LocalTime.NOON, 2,dancingEvening1,room1)
+*/
+
+
     }
 
     public static RetiredEmployee retire(PermanentEmployee employee) throws Exception {
