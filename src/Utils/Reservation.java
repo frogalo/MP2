@@ -11,7 +11,7 @@ public class Reservation {
     DancingEvening dancingEvening;
     Room room;
 
-    public Reservation(LocalTime time, int reservationNumber, DancingEvening dancingEvening, Room room) {
+    public  Reservation(LocalTime time, int reservationNumber, DancingEvening dancingEvening, Room room) throws Exception {
         this.time = time;
         this.reservationNumber = reservationNumber;
         this.dancingEvening = dancingEvening;

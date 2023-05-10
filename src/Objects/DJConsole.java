@@ -23,6 +23,7 @@ public class DJConsole {
         if (!this.djs.contains(dj)) {
             djs.add(dj);
             dj.addConsole(this);
+            System.out.println("Adding " + dj.getFirstName());
         }
     }
 

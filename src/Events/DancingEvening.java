@@ -30,9 +30,11 @@ public class DancingEvening extends Event {
         }
     }
 
-    public void addReservation(Reservation reservation) {
-        if (!this.reservations.contains(reservation)) {
+    public void addReservation(Reservation reservation) throws Exception {
+        if (reservations.size() < 4) {
             this.reservations.add(reservation);
+        } else {
+            throw new Exception("Too many reservations!");
         }
     }
 

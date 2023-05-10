@@ -2,6 +2,9 @@ import Emloyees.*;
 import Events.*;
 import Objects.*;
 import Emloyees.DJType;
+import Utils.Reservation;
+
+import java.time.LocalTime;
 
 
 public class Main {
@@ -108,25 +111,19 @@ public class Main {
         retiredEmployee1.doWork();
         retiredEmployee1.countPayments();
 
-/*
 
         System.out.println("============MP4============");
 
-        System.out.println("============ARGUMENT============");
+        System.out.println("============ATRIBUTE============");
         birthday1.setNumberOfGuests(10);
 //        Birthday birthday3 = new Birthday(2, "24-Marka", "03.02.2020", "20:00", "24:00", Cake.CHOCOLATE,
 //                "Marek", 24, 500);
 //        birthday1.setNumberOfGuests(200);
 
         System.out.println("============UNIQUE============");
-        Table table1 = new Table(1, 23);
-        Table table2 = new Table(2, 23);
-        Table table3 = new Table(1, 23);
 
-        waiter1.addTable(table1);
-        waiter1.addTable(table2);
-//        waiter1.addTable(table3);
-        waiter1.showTables();
+//        DJ DJKalina2 = new DJ("10.02.1991", "1002199100933", 1, "Kalina", "Prosota", "Music Inc.", "Kalyna", DJType.UNKNOWN);
+
 
         System.out.println("============SUBSET============");
         DJGroup group1 = new DJGroup("sub1Group", "metal");
@@ -138,8 +135,10 @@ public class Main {
 
         System.out.println("============ORDERED============");
         DJConsole djConsole1 = new DJConsole("Trax2000", 201);
-        DJKalina.addConsole(djConsole1);
+
         djConsole1.addDJ(DJMarian);
+        djConsole1.addDJ(DJKalina);
+        System.out.println(djConsole1.getDjs());
 
 //        djConsole1.addDJ(DJMarian);
 //        DJKalina.addConsole(djConsole1);
@@ -148,9 +147,30 @@ public class Main {
 
         System.out.println("============BAG============");
         Room room1 = new Room(2, 124.14);
-//        Reservation reservation1 = new Reservation(LocalTime.NOON, 2,dancingEvening1,room1)
-*/
+        Room room2 = new Room(2, 124.14);
+        Room room3 = new Room(2, 124.14);
+        Reservation reservation1 = new Reservation(LocalTime.NOON, 2, dancingEvening1, room1);
+        Reservation reservation2 = new Reservation(LocalTime.NOON, 2, dancingEvening1, room2);
+//        Reservation reservation3 = new Reservation(LocalTime.NOON, 2, dancingEvening1, room3);
 
+
+        System.out.println("============XOR============");
+        Cushion cushion = new Cushion("Comfortable");
+        room1.addCushion(cushion);
+        System.out.println(room1.getCushion().toString());
+//        System.out.println(room1.getMirror().toString());
+
+        Mirror mirror = new Mirror(212);
+        room1.addMirror(mirror);
+//        System.out.println(room1.getCushion().toString());
+        System.out.println(room1.getMirror().toString());
+
+
+
+//        System.out.println(room1.mirror);
+
+        System.out.println("============CUSTOM============");
+//        Room room2 = new Room(13,122.1);
 
     }
 

@@ -10,18 +10,29 @@ import java.util.HashSet;
 
 public class DJ extends TemporaryEmployee {
     private final String pseudonym;
+    private static final HashSet<String> usedPseudonyms = new HashSet<>();
     private final ArrayList<DJOnDancingEvening> djOnDancingEvening = new ArrayList<>();
     private final ArrayList<Contract> contracts = new ArrayList<>();
     private final HashSet<DJType> DJKinds = new HashSet<>();
     private int numberOfFans;
     private int yearsOfExperience;
     public DJGroup djGroup;
+    
     public DJConsole djConsole;
+    public boolean isLead;
 
     public DJ(String birthDate, String PESEL, int id, String firstName, String lastName, String company, String pseudonym, DJType djType) throws Exception {
         super(birthDate, PESEL, id, firstName, lastName, company);
+        if (usedPseudonyms.contains(pseudonym)) {
+            throw new Exception("Pseudonym " + pseudonym + " is already taken");
+        }
+        usedPseudonyms.add(pseudonym);
         this.pseudonym = pseudonym;
         DJKinds.add(djType);
+    }
+
+    public boolean isLead() {
+        return isLead;
     }
 
     public void addDjOnDancingEvent(DJOnDancingEvening djOnEvening) {
@@ -172,6 +183,10 @@ public class DJ extends TemporaryEmployee {
                 djGroup.djs.remove(this);
             }
         }
+    }
+
+    public DJConsole getConsole() {
+        return djConsole;
     }
 
     public void addConsole(DJConsole djConsole) throws Exception {

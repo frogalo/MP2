@@ -25,10 +25,10 @@ public class Waiter extends PermanentEmployee {
     }
 
     public void addTable(Table table) throws Exception {
-        if (this.tables.containsKey(table.number)) {
+        if (this.tables.containsKey(table.tableNumber)) {
             throw new Exception("Table already with this number already exists");
         }
-        this.tables.put(table.number, table);
+        this.tables.put(table.tableNumber, table);
         table.waiter = this;
     }
 

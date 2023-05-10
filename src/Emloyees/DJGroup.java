@@ -28,6 +28,7 @@ public class DJGroup {
             throw new Exception("This dj is not in the group");
         }
         this.leadDJ = leadDJ;
+        leadDJ.isLead = true;
     }
 
     public void showGroupMembers() {

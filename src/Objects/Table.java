@@ -4,12 +4,12 @@ import Emloyees.Waiter;
 
 public class Table {
 
-    public int number;
+    public int tableNumber;
     private int size;
     public Waiter waiter;
 
     public Table(int number, int size) {
-        this.number = number;
+        this.tableNumber = number;
         this.size = size;
     }
 
@@ -26,7 +26,7 @@ public class Table {
     @Override
     public String toString() {
         return "Table{" +
-                "number=" + number +
+                "number=" + tableNumber +
                 ", size=" + size +
                 '}';
     }
